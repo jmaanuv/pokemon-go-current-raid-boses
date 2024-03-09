@@ -6,11 +6,11 @@ import os
 
 today: date = date.today()
 df: pd.DataFrame
-if os.path.exists(f'{today}.csv'):
-    df = pd.read_csv(f'{today}.csv')
+if os.path.exists(rf'.\{today}.csv'):
+    df = pd.read_csv(rf'.\{today}.csv')
 else:
     read_and_store_data()
-    df = pd.read_csv(f'{today}.csv')
+    df = pd.read_csv(rf'.\{today}.csv')
 
 tiers = st.multiselect(
     'Choose Tiers',
@@ -25,8 +25,6 @@ if my_button:
         to_copy: str = ''
         for index, row in pokemon_data.iterrows():
             shiny_emoji = '✨' if row['shiny'] else ''
-            to_copy += (f'{row['tier']} {row['name']} {shiny_emoji}'
-                        f'\n{row['non boosted hundo cp']} / {row['boosted hundo cp']}'
-                        f'\n{row['boosted weather']}\n')
+            to_copy += f"{row['tier']} {row['name']} {shiny_emoji} \n{row['non boosted hundo cp']} / {row['boosted hundo cp']} \n{row['boosted weather']}\n"
         st.code(to_copy, language="python")
         st.write(pokemon_data)
