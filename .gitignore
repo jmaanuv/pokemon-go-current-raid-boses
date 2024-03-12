@@ -34,7 +34,8 @@ __pycache__/
 *.sqlite
 *.db
 
-# CSV files
+# CSV files and data dir
+data/
 *.csv
 
 # OS generated files
