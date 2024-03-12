@@ -9,7 +9,7 @@ today: date = date.today()
 df: pd.DataFrame
 DATA_DIR = r'.\data'
 DATA_PATH = rf'.\data\{today}'
-FAVICO = r'.\arceus-logo.png'
+FAVICO = r'arceus-logo.png'
 
 if not os.path.exists(DATA_DIR):
     os.mkdir(DATA_DIR)
@@ -41,8 +41,7 @@ if my_button:
         to_copy: str = ''
         for index, row in pokemon_data.iterrows():
             shiny_emoji = '✨' if row['shiny'] else ''
-            to_copy += f"{row['tier']} | {row['name']} {shiny_emoji} \n{row['non boosted hundo cp']} / {row[
-                'boosted hundo cp']} \n{row['boosted weather']}\n\n"
+            to_copy += f"{row['tier']} | {row['name']} {shiny_emoji} \n{row['non boosted hundo cp']} / {row['boosted hundo cp']} \n{row['boosted weather']}\n\n"
         header = '👾 current raid bosses👾\n\n'
         st.code(header + to_copy, language='text')
 
